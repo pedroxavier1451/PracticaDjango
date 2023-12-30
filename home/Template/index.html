@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Despliegue de servicios de Inteligencia Artificial</title>
+  <!-- Enlace a Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy2Ck1Cg5B9QG3Owx6D8F5i0n2J9I0b4ks" crossorigin="anonymous">-->
+  <!-- Estilos personalizados -->
+  <style>
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+    }
+
+    header {
+        background-color: #000000;
+        color: #fff;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .card-img-top{
+        object-fit: cover;
+        margin-bottom: 15px;
+        height: 75%; 
+    }
+
+    .card-container {
+        display: flex;
+        justify-content: space-evenly; /* Ajusta space-around según tu preferencia */
+        align-items: center;
+        width: 100%;
+    }
+
+    .card {
+        width: 600px;
+        height: 500px;
+        background-color: #fff;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        margin: 10px;
+        cursor: pointer;
+        transition: transform 0.3s;
+        justify-content: center;
+        align-items: center;  
+        text-align: justify;  
+        
+    }
+
+    .card p {
+        margin: 10px 30px;
+        color: #000000;
+    }
+
+    .card h3 {
+        color: #000000;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        border-color: #8b8b8b;
+        box-shadow: 0 0 10px #000000;
+    }
+
+    .card a {
+        text-decoration: none; /* Elimina el subrayado */
+        color: inherit; /* Utiliza el color por defecto del texto */
+    }
+
+  </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Despliegue de servicios de Inteligencia Artificial</h1>
+    </header>
+    <div class="card-container">
+        <a href="nuevasolicitud">
+            <div class="card">
+                <img src="https://lalupadigital.com/wp-content/uploads/2021/04/LaLupaDigital-Alejandro-Enrique-Esis-Urdaneta-De-las-ventajas-y-desventajas-de-los-prestamos-bancarios-FOTO.jpg" class="card-img-top" alt="Imagen 1">
+                <h3>Predicción Credito Bancario</h3>
+                <p>Servicio para predecir si un cliente en un banco es un cliente adecuado o no, adecuado para concederle un crédito.</p>
+            </div>
+        </a>
+        <a href="nuevopaciente">
+            <div class="card">
+                <img src="https://www.velascolawgroup.com/wp-content/uploads/2020/03/screen_2x.jpg" class="card-img-top" alt="Imagen 2">
+                <h3>Detección de enfermedades cardíacas</h3>
+                <p>Servicio para detectar si un paciente puede desarrollar enfermedades cardíacas en etapas tempranas.</p>
+            </div>
+        </a>
+    </div>
+
+</body>
+
+
+
+</html>
