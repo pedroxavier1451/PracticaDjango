@@ -4,12 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Servicio de Predicción</title>
-  <!-- Agrega el enlace al archivo de estilos de Bootstrap -->
+  <title>Servicio de detección de enfermedades cardíacas</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <style>
-    /* Agrega tus estilos personalizados aquí */
-
     body {
       background-color: #f8f9fa; /* Color de fondo gris claro */
     }
@@ -25,6 +22,12 @@
       background-color: #343a40; /* Gris oscuro o negro de Bootstrap */
       color: #ffffff; /* Texto blanco */
     }
+     nav {
+      background-color: #343a40;
+    }
+    nav a {
+      color: #fff;
+    }
   </style>
 </head>
 
@@ -32,9 +35,23 @@
 
   <!-- Encabezado -->
   <div class="header">
-    <h2>Servicio: Predicción de Suscripción a Depósito a Plazo Fijo</h2>
+    <h2>Servicio de detección de enfermedades cardíacas</h2>
   </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">Inicio</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
 
+          <li class="nav-item"><a class="nav-link" href="#">Acerca de</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <!-- Card con resultados de predicción -->
   <div class="container mt-4">
     <div class="card">
@@ -43,19 +60,38 @@
       </div>
       <div class="card-body">
       
-        <p>El cliente <b>NO</b> se suscribe al Servicio de Depósito a plazo fijo</p>
-        <p>Certeza de 99%</p>
+        <p>El cliente <b>{{ datos.1 }}</b> el Servicio de Depósito a plazo fijo</p>
 
-        <button class="btn btn-primary">Imprimir resultados</button>
+
+        <!-- Tabla para mostrar los resultados -->
+               <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Predicción</th>
+                    <th>Resultado</th>
+                    <th>Certeza</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for resultado in datos %}
+                        <td>{{ resultado }}</td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="btn btn-light">Imprimir resultados</button>
 
       </div>
     </div>
-  </div>
 
-  <!-- Agrega el enlace al archivo de scripts de Bootstrap y jQuery (opcional) -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <div>
+            <br>
+            <button class="btn btn-primary" onclick="window.location.href = '/nuevopaciente'">Realizar nueva predicción</button>
+      </div>
+
+  </div>
 </body>
 
 </html>
