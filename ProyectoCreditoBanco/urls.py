@@ -31,5 +31,6 @@ urlpatterns = [
     re_path(r'^predecir/',views.Clasificacion.predecir),
     re_path(r'^predecirIOJson/',views.Clasificacion.predecirIOJson),
     re_path(r'^nuevopaciente/$',views2.determinarEnfermedad, name='nuevopaciente'),
-    re_path(r'^predecir2/',views2.predecir2, name='resultados_prediccion'),
+    re_path(r'^predecir2/',views2.predecir2, name='predecir2'),
+    re_path(r'^predecirNB/',views2.predecirNB, name='predecirNB'),
 ]

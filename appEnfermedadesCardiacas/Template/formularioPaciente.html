@@ -90,60 +90,60 @@
     </header>
     
 
-    <form action="/predecir2/" method="post">
-
+    <form id="myForm" method="post" action="{% url 'predecir2' %}">
+        {% csrf_token %}
         <label for="edad">Edad</label>
         <label for="genero">Género</label>
         <label for="presion_arterial">Presión Arterial</label>
         <label for="colesterol">Colesterol</label>
         
 
-        <input type="number" name="edad" required>
-        <select name="genero" required>
+        <input type="number" id="edad" name="edad" required>
+        <select id="genero" name="genero" required>
             <option value=1>Masculino</option>
             <option value=0>Femenino</option>
         </select>
-        <input type="number" name="presion_arterial" required>
-        <input type="number" name="colesterol" required>
+        <input type="number" id="presion_arterial" name="presion_arterial" required>
+        <input type="number" id="colesterol" name="colesterol" required>
 
         <label for="glucosa">Glucosa</label>
         <label for="tipo_dolor">Tipo de Dolor de Pecho</label>
         <label for="electrocardiograma">Electrocardiograma</label>
         <label for="frecuencia_cardiaca">Frecuencia Cardíaca</label>
 
-        <select name="glucosa" required>
+        <select id="glucosa" name="glucosa" required>
             <option value=1>Mayor a 120 mg/dl</option>  
             <option value=0>Menor a 120 mg/dl</option>
         </select>
-        <select name="tipo_dolor" required>
+        <select id="tipo_dolor" name="tipo_dolor" required>
             <option value=0>Angina Típica</option>
             <option value=1>Angina Atípica</option>
             <option value=2>Dolor No Anginoso</option>
             <option value=3>Asintomático</option>
         </select>
-        <select name="electrocardiograma" required>
+        <select id="electrocardiograma" name="electrocardiograma" required>
             <option value=0>Normal</option>
             <option value=1>Anomalía de la Onda ST-T</option>
             <option value=2>Hipertrofia Ventricular Izquierda</option>
         </select>
-        <input type="number" name="frecuencia_cardiaca" required>
+        <input type="number" id="frecuencia_cardiaca" name="frecuencia_cardiaca" required>
 
         <label for="angina_inducida">Angina Inducida por el Ejercicio</label>
         <label for="oldpeak_st">Oldpeak = ST</label>
         <label for="pendiente_st">Pendiente Anormal del Segmento ST</label>
         <label for="num_vasos">Número de Vasos Importantes</label>
 
-        <select name="angina_inducida" required>
+        <select id="angina_inducida" name="angina_inducida" required>
             <option value=1>Sí</option>
             <option value=0>No</option>
         </select>
-        <input type="number" name="oldpeak_st" required>
-        <select name="pendiente_st" required>
+        <input type="number" id="oldpeak_st" name="oldpeak_st" required>
+        <select id="pendiente_st" name="pendiente_st" required>
             <option value=1>Pendiente Ascendente</option>
             <option value=2>Plano</option>
             <option value=3>Pendiente Descendente</option>
         </select>
-        <select name="num_vasos" required>
+        <select id="num_vasos" name="num_vasos" required>
             <option value=0>0</option>
             <option value=1>1</option>
             <option value=2>2</option>
@@ -152,7 +152,7 @@
         <br>
 
         <label for="modelo">Modelo de predicción</label>
-        <select name="modelo" required>
+        <select id="modelo" name="modelo" required>
             <option value="red_neuronal">Red Neuronal</option>
             <option value="naive_bayes">Naive Bayes</option>
         </select>
@@ -160,6 +160,22 @@
 
         <input type="submit" value="Predecir">
     </form>
+
+    <script>
+        document.getElementById('modelo').addEventListener('change', function() {
+            var modeloSeleccionado = this.value;
+            var form = document.getElementById('myForm');
+
+            console.log("Entro")
+            if (modeloSeleccionado === 'red_neuronal') {  // Red Neuronal
+                form.action = "{% url 'predecir2' %}";
+            } else if (modeloSeleccionado === 'naive_bayes') {  // Naive Bayes
+                form.action = "{% url 'predecirNB' %}";
+            }else{
+                input.setCustomValidity('Seleccione un Modelo');
+            }
+        });
+    </script>
 
 </body>
 </html>
