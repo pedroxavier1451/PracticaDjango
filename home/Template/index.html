@@ -74,11 +74,6 @@
         box-shadow: 0 0 10px #000000;
     }
 
-    .card a {
-        text-decoration: none; /* Elimina el subrayado */
-        color: inherit; /* Utiliza el color por defecto del texto */
-    }
-
   </style>
 </head>
 <body>
@@ -88,21 +83,25 @@
         <h1>Despliegue de servicios de Inteligencia Artificial</h1>
     </header>
     <div class="card-container">
-        <a href="nuevasolicitud">
-            <div class="card">
-                <img src="https://lalupadigital.com/wp-content/uploads/2021/04/LaLupaDigital-Alejandro-Enrique-Esis-Urdaneta-De-las-ventajas-y-desventajas-de-los-prestamos-bancarios-FOTO.jpg" class="card-img-top" alt="Imagen 1">
-                <h3>Predicción Credito Bancario</h3>
-                <p>Servicio para predecir si un cliente en un banco es un cliente adecuado o no, adecuado para concederle un crédito.</p>
-            </div>
-        </a>
-        <a href="nuevopaciente">
-            <div class="card">
-                <img src="https://www.velascolawgroup.com/wp-content/uploads/2020/03/screen_2x.jpg" class="card-img-top" alt="Imagen 2">
-                <h3>Detección de enfermedades cardíacas</h3>
-                <p>Servicio para detectar si un paciente puede desarrollar enfermedades cardíacas en etapas tempranas.</p>
-            </div>
-        </a>
+        <div class="card card-link" data-href="{% url 'nuevopaciente' %}">
+            <img src="https://www.velascolawgroup.com/wp-content/uploads/2020/03/screen_2x.jpg" class="card-img-top" alt="Imagen 2">
+            <h3>Detección de enfermedades cardíacas</h3>
+            <p>Servicio para detectar si un paciente puede desarrollar enfermedades cardíacas en etapas tempranas.</p>
+        </div>
     </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".card-link").click(function () {
+                var href = $(this).data("href");
+                if (href) {
+                    window.location.href = href;
+                }
+            });
+        });
+    </script>
 
 </body>
 
